@@ -482,6 +482,11 @@ header {
   flex-grow: 1;
   font-size: 26px; /* Adjust the size as needed */
 }
+.chub-link {
+  font-size: 1.2em;
+  color: #7C519D;
+  text-decoration: underline;
+}
 
 #counter-caption hr {
   width: 100%;
