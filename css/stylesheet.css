@@ -465,6 +465,28 @@ header {
   font-size: 26px;
   color: #fff;
 }
+#counter-caption .image-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#counter-caption .launch-image {
+  width: 120px; /* Adjust the size as needed */
+  margin-right: 10px;
+}
+
+#counter-caption .launch-text {
+  text-align: right;
+  flex-grow: 1;
+  font-size: 26px; /* Adjust the size as needed */
+}
+
+#counter-caption hr {
+  width: 100%;
+  margin-top: 10px;
+}
 .iconic-line {
   position: relative;
   display: block;
@@ -799,6 +821,30 @@ footer nav ul li {
   }
   #counter-caption {
     font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  #counter-caption .image-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #counter-caption .launch-image {
+    width: 100px; /* Adjust the size as needed */
+    margin-right: 10px;
+  }
+  #counter-caption .launch-text {
+    text-align: right;
+    flex-grow: 1;
+    font-size: 18px;
+  }
+  #counter-caption hr {
+    width: 100%;
+    margin-top: 10px;
   }
   .days_dash .digit {
     font-size: 60px;
@@ -830,6 +876,30 @@ footer nav ul li {
   }
   #counter-caption {
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0;
+  }
+  #counter-caption .image-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  #counter-caption .launch-image {
+    width: 80px; /* Adjust the size as needed */
+    margin-right: 10px;
+  }
+  #counter-caption .launch-text {
+    text-align: right;
+    flex-grow: 1;
+    font-size: 18px;
+  }
+  #counter-caption hr {
+    width: 100%;
+    margin-top: 10px;
   }
   .days_dash {
     bottom: 3px;
@@ -922,6 +992,29 @@ footer nav ul li {
     text-align: center;
     margin: 10px 0;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #counter-caption .image-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #counter-caption .launch-image {
+    width: 80px; /* Adjust the size as needed */
+    margin-right: 10px;
+  }
+  #counter-caption .launch-text {
+    text-align: right;
+    flex-grow: 1;
+    font-size: 18px;
+  }
+  #counter-caption hr {
+    width: 100%;
+    margin-top: 10px;
   }
 }
 /*Browsers Hacks*/
