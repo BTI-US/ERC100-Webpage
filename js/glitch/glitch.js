@@ -139,7 +139,9 @@
 
     ThreeScene.prototype.createWorld = function() {
       this.sphere = new Model();
+      this.sphere.scale.set(0.1, 0.1, 0.1); // Scale down the Model object
       this.tuc = new Logo();
+      this.tuc.scale.set(0.1, 0.1, 0.1); // Scale down the Logo object
       this.scene.add(this.tuc);
       this.lighting = new ThreePointLighting();
       return this.scene.add(this.lighting);
