@@ -488,6 +488,10 @@ header {
   text-decoration: underline;
 }
 
+#chart-container {
+  width: 100%;
+  height: 500px;
+}
 #counter-caption hr {
   width: 100%;
   margin-top: 10px;
@@ -542,6 +546,9 @@ hr {
 }
 .page .body p:last-child {
   margin-bottom: 0;
+}
+.page.chart {
+  top: 15%; /* Adjusted top value */
 }
 .fixed {
   position: fixed;
@@ -824,6 +831,12 @@ footer nav ul li {
   .page .body .le-btn {
     font-size: 12px;
   }
+  .page.chart {
+    top: 10%; /* Adjusted top value */
+  }
+  .le-btn.toggle-button {
+    margin-left: 20px;
+  }
   #counter-caption {
     font-size: 16px;
     display: flex;
@@ -924,6 +937,9 @@ footer nav ul li {
   .minutes_dash:after {
     font-size: 30px;
   }
+  .page.chart {
+    top: 10%; /* Adjusted top value */
+  }
 }
 @media all and (max-width: 450px) {
   .form-holder form .input-group .le-input {
@@ -969,6 +985,9 @@ footer nav ul li {
   }
   .page.active {
     display: block;
+  }
+  .page.chart {
+    top: 0%; /* Adjusted top value */
   }
   form .input-group-addon .le-btn {
     width: 50px;
