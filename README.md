@@ -1,9 +1,9 @@
-# Spatula Whitepaper
+# ERC100 Webpage
 
-[![Deploy static content to Pages](https://github.com/BTI-US/Spatula-Webpage/actions/workflows/static.yml/badge.svg?branch=master)](https://github.com/BTI-US/Spatula-Webpage/actions/workflows/static.yml)
+[![Deploy static content to Pages](https://github.com/BTI-US/ERC100-Webpage/actions/workflows/static.yml/badge.svg?branch=master)](https://github.com/BTI-US/ERC100-Webpage/actions/workflows/static.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- Last Modified: 2024-11-24
+- Last Modified: 2024-12-01
 - Author: Phill Weston
 
 ## Introduction
