@@ -1041,6 +1041,9 @@ footer nav ul li {
     width: 100%;
     margin-top: 10px;
   }
+  #chart-container {
+    height: 400px;
+  }
 }
 /*Browsers Hacks*/
 .ie10 #container,
