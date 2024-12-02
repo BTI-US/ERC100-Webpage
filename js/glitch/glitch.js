@@ -188,14 +188,24 @@
       this.container.appendChild(this.renderer.domElement);
       this.composer = new THREE.EffectComposer(this.renderer);
       this.composer.addPass(new THREE.RenderPass(this.scene, this.currentCamera));
+
+      // DotScreenShader
       this.effect = new THREE.ShaderPass(THREE.DotScreenShader);
       this.effect.uniforms["scale"].value = 2;
       this.composer.addPass(this.effect);
+
+      // VignetteShader
       this.effect = new THREE.ShaderPass(THREE.VignetteShader);
       this.effect.uniforms['darkness'].value = 2;
       this.composer.addPass(this.effect);
+
+      // RGBShiftShader
       this.effect = new THREE.ShaderPass(THREE.RGBShiftShader);
       this.effect.uniforms["amount"].value = 0.01;
+      this.effect.renderToScreen = true;
+      this.composer.addPass(this.effect);
+
+      // GlitchPass
       this.effect = new THREE.GlitchPass();
       this.effect.uniforms["amount"].value = 0.005;
       this.effect.renderToScreen = true;

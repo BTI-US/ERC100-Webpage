@@ -177,7 +177,7 @@
             show: false // Disable tooltip
          },
          legend: {
-            data: ['Price Prediction Based on the ERC-404 Protocol', 'Price Prediction Not Based on the ERC-404 Protocol'],
+            data: ['Price Prediction Based on the ERC-100 Protocol', 'Price Prediction Not Based on the ERC-100 Protocol'],
             textStyle: {
             color: '#C0C0C0' // Silver white color for the legend
             }
@@ -220,7 +220,7 @@
          },
          series: [
             {
-               name: 'Price Prediction Based on the ERC-404 Protocol',
+               name: 'Price Prediction Based on the ERC-100 Protocol',
                type: 'line',
                data: [],
                itemStyle: {
@@ -228,7 +228,7 @@
                }
             },
             {
-               name: 'Price Prediction Not Based on the ERC-404 Protocol',
+               name: 'Price Prediction Not Based on the ERC-100 Protocol',
                type: 'line',
                data: [],
                itemStyle: {
@@ -249,11 +249,11 @@
                myChart.setOption({
                   series: [
                      {
-                        name: 'Price Prediction Based on the ERC-404 Protocol',
+                        name: 'Price Prediction Based on the ERC-100 Protocol',
                         data: data.rising.slice(0, index + 1)
                      },
                      {
-                        name: 'Price Prediction Not Based on the ERC-404 Protocol',
+                        name: 'Price Prediction Not Based on the ERC-100 Protocol',
                         data: data.fluctuating.slice(0, index + 1)
                      }
                   ]
@@ -266,11 +266,11 @@
                   myChart.setOption({
                      series: [
                      {
-                        name: 'Price Prediction Based on the ERC-404 Protocol',
+                        name: 'Price Prediction Based on the ERC-100 Protocol',
                         data: []
                      },
                      {
-                        name: 'Price Prediction Not Based on the ERC-404 Protocol',
+                        name: 'Price Prediction Not Based on the ERC-100 Protocol',
                         data: []
                      }
                      ]
@@ -289,7 +289,7 @@
          myChart.setOption({
             series: [
             {
-               name: 'Price Prediction Based on the ERC-404 Protocol',
+               name: 'Price Prediction Based on the ERC-100 Protocol',
                itemStyle: { opacity: isVisible ? 1 : 0 }, // Toggle visibility by opacity
                lineStyle: { opacity: isVisible ? 1 : 0 },  // Toggle visibility of the line itself
                symbolSize: isVisible ? 4 : 0 // Toggle visibility of the points (symbols)
@@ -303,7 +303,7 @@
          myChart.setOption({
             series: [
                {
-                  name: 'Price Prediction Not Based on the ERC-404 Protocol',
+                  name: 'Price Prediction Not Based on the ERC-100 Protocol',
                   itemStyle: { opacity: isVisible ? 1 : 0 }, // Toggle visibility by opacity
                   lineStyle: { opacity: isVisible ? 1 : 0 },  // Toggle visibility of the line itself
                   symbolSize: isVisible ? 4 : 0 // Toggle visibility of the points (symbols)
@@ -325,7 +325,7 @@
       e.preventDefault();
       // Hide other sections and show price-table section
       $('.page').removeClass('active').css('z-index', 1);
-      $('#price-table').addClass('active').css('z-index', 10);
+      $('#price-table').addClass('active').css('z-index', 5);
 
       // Simulate data
       const n_days = 400;
