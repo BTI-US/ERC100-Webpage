@@ -242,4 +242,13 @@
 
   ThreeScene = new ThreeScene();
 
+  // Add event listener for the button to toggle GlitchPass effect
+  document.getElementById('toggle-glitch').addEventListener('click', function() {
+    if (ThreeScene.effect.enabled) {
+      ThreeScene.effect.enabled = false;
+    } else {
+      ThreeScene.effect.enabled = true;
+    }
+  });
+
 }).call(this);
