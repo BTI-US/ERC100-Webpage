@@ -325,7 +325,7 @@
       e.preventDefault();
       // Hide other sections and show price-table section
       $('.page').removeClass('active').css('z-index', 1);
-      $('#price-table').addClass('active').css('z-index', 5);
+      $('#price-table').addClass('active').css('z-index', 10);
 
       // Simulate data
       const n_days = 400;

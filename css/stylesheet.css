@@ -658,10 +658,6 @@ label.error {
   padding: 10px;
   border-radius: 5px 0 0 5px;
 }
-#price-table {
-  z-index: 5;
-  position: absolute;
-}
 footer {
   z-index: 10;
   position: absolute;
