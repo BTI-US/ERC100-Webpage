@@ -612,13 +612,13 @@ input[type="checkbox"] {
 
 /* Add the color when checked */
 #toggleBitcoin:checked {
-    background-color: #5470C6; /* Bitcoin line color */
-    border-color: #5470C6;
+    background-color: #EE6666; /* Bitcoin line color */
+    border-color: #EE6666;
 }
 
 #toggleDogecoin:checked {
-    background-color: #EE6666; /* Dogecoin line color */
-    border-color: #EE6666;
+    background-color: #5470C6; /* Dogecoin line color */
+    border-color: #5470C6;
 }
 
 

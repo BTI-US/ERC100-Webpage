@@ -217,7 +217,7 @@
                      type: 'line',
                      data: [],
                      itemStyle: {
-                        color: '#5470C6' // Color for the first line
+                        color: '#EE6666' // Color for the first line
                      }
                   },
                   {
@@ -225,7 +225,7 @@
                      type: 'line',
                      data: [],
                      itemStyle: {
-                        color: '#EE6666' // Color for the second line
+                        color: '#5470C6' // Color for the second line
                      }
                   }
                ]
