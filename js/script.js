@@ -311,7 +311,7 @@
             ]
          });
       });
-   
+
       return myChart;
       } else {
          console.error('Chart container not found');
@@ -327,6 +327,9 @@
       $('.page').removeClass('active').css('z-index', 1);
       $('#price-table').addClass('active').css('z-index', 10);
 
+      // Hide the countdown holder
+      $('#coundown-holder').slideUp();
+
       // Simulate data
       const n_days = 400;
       const rising_prices = simulateRisingStockPrices(n_days);
@@ -339,12 +342,19 @@
 
       myChart = initializeChart(data, 0);
    });
+   
+   // Restore the countdown holder when other tabs are clicked
+   $('a[href!="#price-table"]').on('click', function (e) {
+      e.preventDefault();
+      // Restore the countdown holder
+      $('#coundown-holder').slideDown();
+   });
 
    // Handle window resize event
    $(window).resize(function () {
-   if (myChart) {
-      myChart.resize();
-   }
+      if (myChart) {
+         myChart.resize();
+      }
    });
    });
 })(jQuery);

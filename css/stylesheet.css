@@ -489,7 +489,7 @@ header {
 }
 
 #chart-container {
-  width: 100%;
+  width: 70%;
   height: 500px;
 }
 #counter-caption hr {
@@ -548,8 +548,38 @@ hr {
   margin-bottom: 0;
 }
 .page.chart {
-  top: 15%; /* Adjusted top value */
+  top: 15%;
+  width: 100%;
 }
+
+.page.chart .body {
+  display: flex;
+  flex-direction: row;
+}
+
+.page.chart .checkbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.page.chart .checkbox-container div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.page.chart .checkbox-container input {
+  margin: 0;
+}
+
+.page.chart .checkbox-container label {
+  white-space: nowrap;
+  font-size: 0.8em;
+  line-height: 1.2;
+}
+
 .fixed {
   position: fixed;
 }
@@ -865,6 +895,13 @@ footer nav ul li {
     width: 100%;
     margin-top: 10px;
   }
+  #chart-container {
+    width: 100%;
+    height: 500px;
+  }
+  .page.chart .body {
+    flex-direction: column;
+  }
   .days_dash .digit {
     font-size: 60px;
     width: 35px;
@@ -919,6 +956,13 @@ footer nav ul li {
   #counter-caption hr {
     width: 100%;
     margin-top: 10px;
+  }
+  #chart-container {
+    width: 100%;
+    height: 500px;
+  }
+  .page.chart .body {
+    flex-direction: column;
   }
   .days_dash {
     bottom: 3px;
@@ -1042,7 +1086,11 @@ footer nav ul li {
     margin-top: 10px;
   }
   #chart-container {
+    width: 100%;
     height: 400px;
+  }
+  .page.chart .body {
+    flex-direction: column;
   }
 }
 /*Browsers Hacks*/
