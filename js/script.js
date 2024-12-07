@@ -315,7 +315,6 @@
       // Initialize the ECharts chart when the "#price-table" link is clicked
       var myChart;
       $('a[href="#price-table"]').on('click', function (e) {
-         e.preventDefault();
          // Hide other sections and show price-table section
          $('.page').removeClass('active').css('z-index', 1);
          $('#price-table').addClass('active').css('z-index', 10);
@@ -343,7 +342,6 @@
 
       // Restore the countdown holder when other tabs are clicked
       $('a[href!="#price-table"]').on('click', function (e) {
-         e.preventDefault();
          // Restore the countdown holder
          $('#coundown-holder').slideDown();
       });
