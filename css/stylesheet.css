@@ -596,6 +596,50 @@ label.error {
   text-align: left;
   left: 0;
 }
+
+/* Hide the default checkbox */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Add the color when checked */
+#toggleBitcoin:checked {
+    background-color: #5470C6; /* Bitcoin line color */
+    border-color: #5470C6;
+}
+
+#toggleDogecoin:checked {
+    background-color: #EE6666; /* Dogecoin line color */
+    border-color: #EE6666;
+}
+
+
+/* Add a check mark inside the checkbox when checked */
+input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+input[type="checkbox"]:checked::after {
+    transform: translate(-50%, -50%) scale(1) rotate(45deg);
+}
 /*------------------------------------*\
     $Functions
 \*------------------------------------*/

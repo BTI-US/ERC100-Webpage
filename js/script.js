@@ -179,8 +179,9 @@
          legend: {
             data: ['Price Prediction Based on the ERC-100 Protocol', 'Price Prediction Not Based on the ERC-100 Protocol'],
             textStyle: {
-            color: '#C0C0C0' // Silver white color for the legend
-            }
+               color: '#C0C0C0' // Silver white color for the legend
+            },
+            show: false // Disable tooltip
          },
          xAxis: {
             type: 'category',

@@ -201,7 +201,7 @@
 
       // RGBShiftShader
       this.effect = new THREE.ShaderPass(THREE.RGBShiftShader);
-      this.effect.uniforms["amount"].value = 0.01;
+      this.effect.uniforms["amount"].value = 0.005;
       this.effect.renderToScreen = true;
       this.composer.addPass(this.effect);
 
