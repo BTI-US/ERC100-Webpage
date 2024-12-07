@@ -21,7 +21,7 @@
             targetDate: {
                'day': 1,
                'month': 1,
-               'year': 2024,
+               'year': 2025,
                'hour': 0,
                'min': 0,
                'sec': 0

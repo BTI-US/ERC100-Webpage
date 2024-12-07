@@ -23,7 +23,7 @@ main {
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 100px;
+  top: 40px;
   right: 30px;
   z-index: 1000;
   cursor: pointer;
@@ -106,7 +106,7 @@ main {
   .button {
     width: 100px;
     height: 35px;
-    top: 90px;
+    top: 40px;
     right: 30px;
   }
   .text {
@@ -118,7 +118,7 @@ main {
   .button {
     width: 90px;
     height: 30px;
-    top: 80px;
+    top: 40px;
     right: 30px;
   }
   .text {

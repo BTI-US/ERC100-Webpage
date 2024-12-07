@@ -211,12 +211,12 @@ function css_browser_selector(u, ns) {
 	}
 
 
-	/* removendo itens invalidos do array */
+	/* removing invalid items from the array */
 	b = b.filter(function(e){
 		return e;
 	});
 
-	/* prefixo do namespace */
+	/* namespace prefix */
 	b[0] = ns ? ns + b[0] : b[0];
 	html.className = b.join(' ' + ns);
 	return html.className;
