@@ -1,5 +1,27 @@
 (function ($) {
    "use strict";
+
+   const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+   function loadConfig() {
+       if (isLocal) {
+           return fetch('../config.json')
+               .then(response => response.json())
+               .then(config => {
+                   return {
+                       EMAIL_SERVICE_ID: config.EMAIL_SERVICE_ID,
+                       EMAIL_TEMPLATE: config.EMAIL_TEMPLATE,
+                       EMAIL_TOKEN: config.EMAIL_TOKEN
+                   };
+               });
+       } else {
+           return Promise.resolve({
+               EMAIL_SERVICE_ID: process.env.EMAIL_SERVICE_ID,
+               EMAIL_TEMPLATE: process.env.EMAIL_TEMPLATE,
+               EMAIL_TOKEN: process.env.EMAIL_TOKEN
+           });
+       }
+   }
    
 //   Pace.on("start", function () {
 //      $("#preloader").show();
@@ -81,6 +103,40 @@
          });
       });
 
+      function sendSubscriptionEmail(userEmail) {
+         return loadConfig()
+             .then(config => {
+                 return fetch('../email/index.html')
+                     .then(response => response.text())
+                     .then(htmlBody => {
+                         const templateParams = {
+                             to_email: userEmail,
+                             reply_to: userEmail,
+                             message_html: htmlBody
+                         };
+                 
+                         return fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                             method: 'POST',
+                             headers: {
+                                 'Content-Type': 'application/json'
+                             },
+                             body: JSON.stringify({
+                                 service_id: config.EMAIL_SERVICE_ID,
+                                 template_id: config.EMAIL_TEMPLATE,
+                                 user_id: config.EMAIL_TOKEN,
+                                 template_params: templateParams,
+                             })
+                         });
+                     })
+                     .then(response => {
+                         if (!response.ok) {
+                             throw new Error('Failed to send email');
+                         }
+                         return response;
+                     });
+             });
+      }
+
       function checkForm() {
          if ($(".form-holder").length > 0) {
 
@@ -93,17 +149,24 @@
 
                //  triggers contact form validation
 
-               if (formStatus.errorList.length === 0)
-               {
-                  $(".form-holder form").fadeOut(function () {
-                     $('#loading').css('visibility', 'visible');
-                     $.post('submit.php', $(".form-holder form").serialize(),
-                             function (data) {
-                                $('.message-box').html(data);
-                                $('#loading').css('visibility', 'hidden');
-                             }
-                     );
-                  });
+               if (formStatus.errorList.length === 0) {
+                   $(".form-holder form").fadeOut(function () {
+                       $('#loading').css('visibility', 'visible');
+
+                       const userEmail = $(".form-holder form").find('input[name="email"]').val();
+
+                       sendSubscriptionEmail(userEmail)
+                           .then(() => {
+                               $('.message-box').html("<div class='alert alert-success'>Your Message Sent!</div>");
+                           })
+                           .catch((error) => {
+                               $('.message-box').html("<div class='alert alert-error'>Error Occurred: " + error.message + "</div>");
+                           })
+                           .finally(() => {
+                               $('#loading').css('visibility', 'hidden');
+                               $(".form-holder form").fadeIn();
+                           });
+                   });
                }
             });
          }
