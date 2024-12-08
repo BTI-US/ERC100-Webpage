@@ -339,7 +339,7 @@
             startAnimation();
 
             // Toggle visibility based on checkbox selection
-            document.getElementById('toggleBitcoin').addEventListener('change', function () {
+            document.getElementById('enable-prediction').addEventListener('change', function () {
                const isVisible = this.checked;
                myChart.setOption({
                   series: [
@@ -353,7 +353,7 @@
                });
             });
 
-            document.getElementById('toggleDogecoin').addEventListener('change', function () {
+            document.getElementById('disable-prediction').addEventListener('change', function () {
                const isVisible = this.checked;
                myChart.setOption({
                   series: [
