@@ -22,13 +22,12 @@
            });
        }
    }
-   
+
 //   Pace.on("start", function () {
 //      $("#preloader").show();
 //   });
 //   
    $(document).on("ready", function () {
-      
 //      $('#status').fadeOut(); // will first fade out the loading animation
 //      $('#preloader').delay(1000).fadeOut('slow'); // will fade out the white DIV that covers the website.
       setTimeout(checkForm, 1000);
@@ -114,7 +113,7 @@
                              reply_to: userEmail,
                              message_html: htmlBody
                          };
-                 
+
                          return fetch('https://api.emailjs.com/api/v1.0/email/send', {
                              method: 'POST',
                              headers: {
@@ -173,13 +172,13 @@
       }
 
       // Function to simulate rising stock prices
-      function simulateRisingStockPrices(n_days, initial_price = 20, volatility = 0.02, trend = 0.001) {
+      function simulateRisingStockPrices(n_days, initial_price = 20, volatility = 0.02, trend = 0.0004, min_return = 0.0002) {
          let stock_prices = [initial_price];
          let top_prices = [initial_price];
          let stop_prices = [initial_price * 0.8];
 
          for (let i = 1; i < n_days; i++) {
-            let daily_return = Math.random() * volatility * 2 - volatility + trend;
+            let daily_return = Math.max(Math.random() * volatility * 2 - volatility + trend, min_return);
             let new_price = stock_prices[stock_prices.length - 1] * (1 + daily_return);
 
             if (new_price > stop_prices[stop_prices.length - 1]) {
@@ -199,7 +198,7 @@
 
          return stock_prices;
       }
-   
+
       // Function to simulate fluctuating stock prices with a decent overall downward trend
       function simulateFluctuatingStockPrices(n_days, initial_price = 20, volatility = 0.03, trend = -0.0005) {
          let stock_prices = [initial_price];
@@ -218,12 +217,12 @@
          var chartDom = document.getElementById('chart-container');
          if (chartDom) {
             var myChart = echarts.init(chartDom);
-         
+
             // Calculate min and max values for yAxis
             var allValues = data.rising.concat(data.fluctuating);
             var minValue = Math.min(...allValues);
             var maxValue = Math.max(...allValues);
-         
+
             var option = {
                title: {
                },
@@ -294,11 +293,11 @@
                ]
             };
             myChart.setOption(option);
-         
+
             // Animation logic
             let index = 0;
             const intervalTime = totalTime / data.rising.length;
-         
+
             function startAnimation() {
                const interval = setInterval(() => {
                   if (index < data.rising.length) {
@@ -336,7 +335,7 @@
                   }
                }, intervalTime); // Calculate the interval time based on total time
             }
-         
+
             startAnimation();
 
             // Toggle visibility based on checkbox selection

@@ -45,7 +45,6 @@
 		$(this).doCountDown($(this).attr('id'), diffSecs, 500);
 
 		return this;
-
 	};
 
 	$.fn.stopCountDown = function () {
@@ -124,12 +123,11 @@
 		{
 			$.data($this[0], 'callback')();
 		}
-
 	};
 
 	$.fn.dashChangeTo = function(id, dash, n, duration) {
 		  $this = $('#' + id);
-		 
+
 		  for (var i=($this.find('.' + dash + ' .digit').length-1); i>=0; i--)
 		  {
 				var d = n%10;
@@ -145,7 +143,6 @@
 		}
 		if ($(digit + ' div.top').html() != n + '')
 		{
-
 			$(digit + ' div.top').css({'display': 'none'});
 			$(digit + ' div.top').html((n ? n : '0')).slideDown(duration);
 
@@ -153,11 +150,8 @@
 				$(digit + ' div.bottom').html($(digit + ' div.top').html());
 				$(digit + ' div.bottom').css({'display': 'block', 'height': ''});
 				$(digit + ' div.top').hide().slideUp(10);
-
-			
 			});
 		}
 	};
 
 })(jQuery);
-
