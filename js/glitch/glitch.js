@@ -107,7 +107,7 @@
     ThreeScene.prototype.init = function() {
       var bloom, grain, scanlines, vignette, vignetteOffset;
       if (!Modernizr.webgl) {
-      //  alert("Your browser dosent support WebGL");
+      //  alert("Your browser doesn't support WebGL");
       }
       this.clock = new THREE.Clock();
       this.scene = new THREE.Scene();
@@ -201,7 +201,7 @@
 
       // RGBShiftShader
       this.effect = new THREE.ShaderPass(THREE.RGBShiftShader);
-      this.effect.uniforms["amount"].value = 0.005;
+      this.effect.uniforms["amount"].value = 0.002;
       this.effect.renderToScreen = true;
       this.composer.addPass(this.effect);
 
@@ -243,11 +243,33 @@
   ThreeScene = new ThreeScene();
 
   // Add event listener for the button to toggle GlitchPass effect
+  let clickCount = 0;
+  let clickTimeout;
+
   document.getElementById('toggle-glitch').addEventListener('click', function() {
-    if (ThreeScene.effect.enabled) {
-      ThreeScene.effect.enabled = false;
+    clickCount++;
+    clearTimeout(clickTimeout);
+
+    if (clickCount === 2) {
+      // Double click: Toggle 3D object display
+      if (ThreeScene.scene.children.includes(ThreeScene.tuc)) {
+        ThreeScene.scene.remove(ThreeScene.tuc);
+        ThreeScene.effect.enabled = false;
+      } else {
+        ThreeScene.scene.add(ThreeScene.tuc);
+        ThreeScene.effect.enabled = true;
+      }
+      clickCount = 0;
     } else {
-      ThreeScene.effect.enabled = true;
+      clickTimeout = setTimeout(() => {
+        // Single click: Retain the current mode
+        if (ThreeScene.effect.enabled) {
+          ThreeScene.effect.enabled = false;
+        } else {
+          ThreeScene.effect.enabled = true;
+        }
+        clickCount = 0;
+      }, 300); // Reset click count after 300ms
     }
   });
 
