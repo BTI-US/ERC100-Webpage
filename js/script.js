@@ -172,32 +172,41 @@
       }
 
       // Function to simulate rising stock prices
-      function simulateRisingStockPrices(n_days, initial_price = 20, volatility = 0.02, trend = 0.0004, min_return = 0.0002) {
+      function simulateRisingStockPrices(n_days, initial_price = 20, volatility = 0.02, trend = 0.001) {
          let stock_prices = [initial_price];
          let top_prices = [initial_price];
          let stop_prices = [initial_price * 0.8];
-
+     
          for (let i = 1; i < n_days; i++) {
-            let daily_return = Math.max(Math.random() * volatility * 2 - volatility + trend, min_return);
-            let new_price = stock_prices[stock_prices.length - 1] * (1 + daily_return);
-
-            if (new_price > stop_prices[stop_prices.length - 1]) {
-               stock_prices.push(new_price);
-            } else {
-               stock_prices.push(stock_prices[stock_prices.length - 1]);
-            }
-
-            if (new_price > top_prices[top_prices.length - 1]) {
-               top_prices.push(new_price);
-               stop_prices.push(new_price * 0.8);
-            } else {
-               top_prices.push(top_prices[top_prices.length - 1]);
-               stop_prices.push(stop_prices[stop_prices.length - 1]);
-            }
+             // Increase the trend value as we approach the end of the simulation
+             let adjusted_trend = trend + (i / n_days) * trend;
+             let daily_return = Math.random() * volatility * 2 - volatility + adjusted_trend;
+             let new_price = stock_prices[stock_prices.length - 1] * (1 + daily_return);
+     
+             if (new_price > stop_prices[stop_prices.length - 1]) {
+                 stock_prices.push(new_price);
+             } else {
+                 stock_prices.push(stock_prices[stock_prices.length - 1]);
+             }
+     
+             if (new_price > top_prices[top_prices.length - 1]) {
+                 top_prices.push(new_price);
+                 stop_prices.push(new_price * 0.8);
+             } else {
+                 top_prices.push(top_prices[top_prices.length - 1]);
+                 stop_prices.push(stop_prices[stop_prices.length - 1]);
+             }
          }
-
+     
+         // Ensure the last few prices are rising
+         for (let i = 0; i < 5; i++) {
+             let last_price = stock_prices[stock_prices.length - 1];
+             let new_price = last_price * (1 + trend);
+             stock_prices.push(new_price);
+         }
+     
          return stock_prices;
-      }
+     }
 
       // Function to simulate fluctuating stock prices with a decent overall downward trend
       function simulateFluctuatingStockPrices(n_days, initial_price = 20, volatility = 0.03, trend = -0.0005) {
